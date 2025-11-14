@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import AppsCard from "../components/AppsCard.jsx"; 
 import { Link, useLoaderData } from "react-router";
-import Cardload from "../components/Cardload.jsx"; 
+import Cardload from "../components/CardLoad.jsx";
+; 
 
 const Apps = () => {
  

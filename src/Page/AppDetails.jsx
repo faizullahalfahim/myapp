@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLoaderData } from "react-router";
-import Cardload from "../components/Cardload.jsx";
+
 import { ToastContainer, toast } from "react-toastify";
 
 import {
@@ -13,6 +13,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import Cardload from "../components/CardLoad";
 
 const AppDetails = () => {
   const { id } = useParams();
