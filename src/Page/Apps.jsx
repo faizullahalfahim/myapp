@@ -1,25 +1,29 @@
 import React, { useState } from "react";
-import useApps from "../hooks/useApps";
-import AppsCard from "../Components/AppsCard";
-import { Link } from "react-router";
-import Cardload from "../Components/Cardload";
+import AppsCard from "../components/AppsCard.jsx"; 
+import { Link, useLoaderData } from "react-router";
+import Cardload from "../components/Cardload.jsx"; 
 
 const Apps = () => {
-  const { appsdata, loading } = useApps();
+ 
+  const allApps = useLoaderData();
+  
   const [search, setSearch] = useState("");
   const term = search.trim().toLocaleLowerCase();
 
+ 
   const searchedApps = term
-    ? appsdata.filter((appData) =>
+    ? (Array.isArray(allApps) ? allApps : []).filter((appData) =>
         appData.title.toLocaleLowerCase().includes(term)
       )
-    : appsdata;
-  console.log(searchedApps);
+    : (Array.isArray(allApps) ? allApps : []); 
+
+ 
 
   return (
     <div>
-      {loading ? (
-        <Cardload count={16}></Cardload>
+    
+      {!Array.isArray(allApps) || allApps.length === 0 ? (
+        <Cardload count={16} />
       ) : (
         <div>
           <div className="text-center items-center">
@@ -31,7 +35,7 @@ const Apps = () => {
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center  justify-between mb-5 max-w-screen-2xl w-full px-4 md:px-6 lg:px-8 mx-auto">
             <h1 className="text-xl font-semibold">
-              ({searchedApps.length})Apps Found
+              ({searchedApps.length}) Apps Found
             </h1>
             <label className="input">
               <input

@@ -1,10 +1,9 @@
-
 import React from "react";
 import { Link } from "react-router";
 
 const AppsCard = ({ app }) => {
   const { image, title, downloads, ratingAvg, id } = app;
-   console.log(app);
+  console.log(app);
   return (
     <div className="">
       <Link to={`/app/${id}`}>

@@ -6,6 +6,9 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import HomeLayout from './LayOuts/HomeLayout.jsx';
 import Home from './components/Home.jsx';
+import Apps from './Page/Apps.jsx';
+import Installation from './Page/Installation.jsx';
+import AppDetails from './Page/AppDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +17,21 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home> </Home>,
+        loader: () => fetch ('/AppsData.json')
+      },
+      {
+        path: "/apps",
+        element: <Apps> </Apps>,
+        loader: () => fetch('/AppsData.json')
+      },
+      {
+        path: "/installation",
+        element: <Installation> </Installation>
+
+      },
+      {
+        path:"/app/:id",
+        element: <AppDetails> </AppDetails>,
         loader: () => fetch ('/AppsData.json')
       }
     ]
