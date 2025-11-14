@@ -9,6 +9,7 @@ import Home from './components/Home.jsx';
 import Apps from './Page/Apps.jsx';
 import Installation from './Page/Installation.jsx';
 import AppDetails from './Page/AppDetails.jsx';
+import ErrorPage from './Page/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
         path:"/app/:id",
         element: <AppDetails> </AppDetails>,
         loader: () => fetch ('/AppsData.json')
+      },
+      {
+        path: "*",
+        element: <ErrorPage> </ErrorPage>
       }
+  
     ]
   },
 ]);
