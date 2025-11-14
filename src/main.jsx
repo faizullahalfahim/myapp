@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import HomeLayout from './LayOuts/HomeLayout.jsx';
+import Home from './components/Home.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +13,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1> jasjk</h1>
+        element: <Home> </Home>,
+        loader: () => fetch ('/AppsData.json')
       }
     ]
   },
