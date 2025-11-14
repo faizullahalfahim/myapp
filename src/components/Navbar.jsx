@@ -116,7 +116,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <a
-          href="https://github.com/tahmidman20?tab=repositories"
+          href="https://github.com/faizullahalfahim?tab=repositories"
           target="_blank"
           className="btn mr-6 text-white bg-gradient-to-r from-blue-400 to-purple-600 hover:scale-105"
         >
